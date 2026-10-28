@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: #F7F4EE;
+  --color-white: #FFFFFF;
+  --color-ink: #111111;
+  --color-orange: #FF5A1F;
+  --color-stone: #6B6B6B;
+  --color-line: #D9D3C7;
+  --font-display: 'Plus Jakarta Sans', 'Inter Tight', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+}
+
+html {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  scroll-behavior: auto; /* Managed by Lenis */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  overflow-x: hidden;
+  position: relative;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #FF5A1F;
+  color: #111111;
+}
+
+/* Custom noise texture overlay for paper/white sections */
+.bg-noise {
+  background-image: url('/noise.svg');
+  background-repeat: repeat;
+}
+
+/* Shimmer sweep effect on CTA button */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.8s infinite;
+}
+
+/* Pulse animation every 6 seconds */
+@keyframes subtlePulse {
+  0%, 85%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.4);
+    transform: scale(1);
+  }
+  92% {
+    box-shadow: 0 0 0 14px rgba(255, 90, 31, 0);
+    transform: scale(1.025);
+  }
+}
+
+.pulse-brand {
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+
+/* Float sine animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(-1.5deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: floatMedium 5s ease-in-out infinite;
+}
+
+/* Hand-drawn SVG underline stroke draw */
+.draw-stroke {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawLine 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.4s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Marquee infinite scroll */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D3C7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5A1F;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-shimmer,
+  .pulse-brand,
+  .animate-float-slow,
+  .animate-float-medium,
+  .animate-marquee {
+    animation: none !important;
+  }
+}

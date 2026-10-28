@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" fill="none">
+  <!-- Fundo ink com cantos arredondados -->
+  <rect width="500" height="220" rx="16" fill="#111111"/>
+
+  <!-- Marcador de página orange no topo central -->
+  <path d="M239 0H261V38L250 31L239 38V0Z" fill="#FF5A1F"/>
+
+  <!-- DEVOCIONAL em caixa alta, branco, peso 800, tracking largo -->
+  <text x="250" y="108" text-anchor="middle" font-family="Inter, 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="44" letter-spacing="0.18em" fill="#FFFFFF">DEVOCIONAL</text>
+
+  <!-- Etiqueta retangular orange com cantos 4px -->
+  <rect x="180" y="132" width="140" height="38" rx="5" fill="#FF5A1F"/>
+
+  <!-- DE VENDAS em caixa alta, ink, bold, tracking largo -->
+  <text x="250" y="157" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="16" letter-spacing="0.22em" fill="#111111">DE VENDAS</text>
+</svg>
